@@ -1,4 +1,4 @@
-# Full Stack Next.js Webapp Starter
+# Bootsraap-fullstack-webapp
 
 My personal starter pack for building full-stack web applications with Next.js.
 
