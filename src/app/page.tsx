@@ -1,27 +1,17 @@
-'use client';
-
-import styled from '@emotion/styled';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-`;
-
-const Title = styled.h1`
-  color: white;
-  font-size: 3rem;
-  margin: 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-`;
+import { ModeToggle } from "@/components/mode-toggle";
+import { H1, Paragraph, Link } from "@/components/typography";
 
 export default function Home() {
   return (
-    <Container>
-      <Title>Hello World</Title>
-    </Container>
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6">
+      <H1 className="text-5xl font-bold tracking-tight">Hello World</H1>
+      <Paragraph className="text-muted-foreground text-lg">
+        Fresh start. Tailwind + shadcn + Radix.
+      </Paragraph>
+      <div className="flex items-center gap-4">
+        <ModeToggle />
+        <Link href="/examples">Examples →</Link>
+      </div>
+    </div>
   );
 }
