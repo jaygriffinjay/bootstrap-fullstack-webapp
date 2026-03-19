@@ -1322,14 +1322,14 @@ export default function TypographyPage() {
             Welcome back,{" "}
             <Skeleton className="inline-block h-5 w-24 align-middle" />
           </H4>
-          <Paragraph>
+          <div className="text-base leading-relaxed">
             Your account has{" "}
             <Skeleton className="inline-block h-4 w-10 align-middle" /> unread
             messages and{" "}
             <Skeleton className="inline-block h-4 w-8 align-middle" /> pending
             tasks. Last login:{" "}
             <Skeleton className="inline-block h-4 w-28 align-middle" />.
-          </Paragraph>
+          </div>
           <List>
             <ListItem>
               <Bold>Project:</Bold>{" "}

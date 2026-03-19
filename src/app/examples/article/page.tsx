@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   H1,
   H2,
@@ -38,21 +38,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 
-function PollinationsImage({
-  prompt,
+function PicsumImage({
+  seed,
   width = 800,
   height = 450,
   className,
   caption,
 }: {
-  prompt: string;
+  seed: number;
   width?: number;
   height?: number;
   className?: string;
   caption?: string;
 }) {
   const [loaded, setLoaded] = useState(false);
-  const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=${width}&height=${height}&nologo=true`;
+  const imgRef = useRef<HTMLImageElement>(null);
+  const url = `https://picsum.photos/seed/${seed}/${width}/${height}`;
+
+  // Handle cached images that won't fire onLoad
+  useEffect(() => {
+    if (imgRef.current?.complete) {
+      setLoaded(true);
+    }
+  }, []);
 
   return (
     <figure className={cn("my-8", className)}>
@@ -65,8 +73,9 @@ function PollinationsImage({
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
+          ref={imgRef}
           src={url}
-          alt={prompt}
+          alt={caption ?? ""}
           className={cn(
             "h-full w-full object-cover transition-opacity duration-700",
             loaded ? "opacity-100" : "opacity-0",
@@ -75,9 +84,7 @@ function PollinationsImage({
         />
         {!loaded && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <Small className="text-muted-foreground/40 text-xs">
-              Generating image…
-            </Small>
+            <Small className="text-muted-foreground/40 text-xs">Loading…</Small>
           </div>
         )}
       </div>
@@ -260,8 +267,8 @@ export default function ArticlePage() {
         <Separator className="my-10" />
 
         {/* Hero image */}
-        <PollinationsImage
-          prompt="aerial view of an elaborate sand castle on a beach at golden hour, cinematic photography, detailed"
+        <PicsumImage
+          seed={42}
           width={900}
           height={500}
           caption="The castle is the product. The sand is the code. The buckets are everything in between."
@@ -291,8 +298,8 @@ export default function ArticlePage() {
           built yesterday.
         </Blockquote>
 
-        <PollinationsImage
-          prompt="close up of sand falling through fingers on a beach, soft light, minimalist photography"
+        <PicsumImage
+          seed={17}
           width={800}
           height={400}
           caption="Infinite potential. Zero structure. This is raw code without guardrails."
@@ -344,8 +351,8 @@ export default function ArticlePage() {
           launchpad.
         </Paragraph>
 
-        <PollinationsImage
-          prompt="architect reviewing blueprints with scaffolding around a building under construction, professional photography"
+        <PicsumImage
+          seed={83}
           width={800}
           height={450}
           caption="The scaffolding (tests, types, CI) holds the castle together while you build."
@@ -444,8 +451,8 @@ export default function ArticlePage() {
           the whole thing collapses.
         </Paragraph>
 
-        <PollinationsImage
-          prompt="intricate sand castle with multiple towers and walls, detailed craftsmanship, golden hour beach photography"
+        <PicsumImage
+          seed={55}
           width={800}
           height={450}
           caption="This is what happens when you have good buckets AND good scaffolding."
@@ -523,8 +530,8 @@ export default function ArticlePage() {
           handing it a mold.
         </Paragraph>
 
-        <PollinationsImage
-          prompt="master craftsman building an elaborate sand castle with precision tools and molds, artistic photography"
+        <PicsumImage
+          seed={99}
           width={800}
           height={450}
           caption="The craftsman doesn't fight the sand. They work with the molds."

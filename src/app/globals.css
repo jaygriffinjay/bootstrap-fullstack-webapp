@@ -2,6 +2,14 @@
 @import "../../node_modules/tw-animate-css/dist/tw-animate.css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: "Sekuya";
+  src: url("/Sekuya-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -50,6 +58,7 @@ body {
 }
 
 :root {
+  --font-sekuya: "Sekuya", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);

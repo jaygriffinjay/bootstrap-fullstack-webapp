@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, JetBrains_Mono, Sekuya } from "next/font/google";
+import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 
 export const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,12 +16,8 @@ export const jetbrainsMono = JetBrains_Mono({
   style: ["normal", "italic"],
 });
 
-export const sekuya = Sekuya({
-  variable: "--font-sekuya",
-  weight: "400",
-  subsets: ["latin"],
-});
+// Sekuya is self-hosted via @font-face in globals.css (not supported by next/font)
 
-export const fontVariables = [geistSans, geistMono, jetbrainsMono, sekuya]
+export const fontVariables = [geistSans, geistMono, jetbrainsMono]
   .map((f) => f.variable)
   .join(" ");

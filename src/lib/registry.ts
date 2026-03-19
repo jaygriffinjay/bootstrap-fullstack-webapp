@@ -15,120 +15,102 @@ export const REGISTRY = {
   // ─── Typography: Headings ─────────────────────────────────────────
   H1: {
     from: "@/components/typography",
-    description:
-      "Page title. One per page. The primary heading that tells the reader what this page is about.",
+    description: "<h1> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
   H2: {
     from: "@/components/typography",
-    description:
-      "Major section heading. Use to divide a page into distinct sections. The reader should be able to skim H2s and understand the page structure.",
+    description: "<h2> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
   H3: {
     from: "@/components/typography",
-    description:
-      "Subsection heading. Use within an H2 section to break it into smaller topics.",
+    description: "<h3> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
   H4: {
     from: "@/components/typography",
-    description:
-      "Minor heading. Use for labeled groups within a subsection — e.g. a list title, a card heading, a sidebar section.",
+    description: "<h4> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
   H5: {
     from: "@/components/typography",
-    description:
-      "Small heading. Use for fine-grained grouping — e.g. form section labels, settings categories.",
+    description: "<h5> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
   H6: {
     from: "@/components/typography",
-    description:
-      "Smallest heading. Use sparingly — for footnote headers, legal section titles, or deeply nested content.",
+    description: "<h6> tag. Override via className or style.",
     props: ["className", "id", "style"],
   },
 
   // ─── Typography: Inline Decorators ────────────────────────────────
   Bold: {
     from: "@/components/typography",
-    description:
-      "Strong emphasis. Use for key terms, important words, or labels the reader should not skip. Nests inside any text element.",
+    description: "<strong> tag. Font-bold.",
     props: ["className"],
   },
   Italic: {
     from: "@/components/typography",
-    description:
-      "Soft emphasis. Use for titles of works, foreign words, technical terms on first use, or tone/voice shifts. Nests inside any text element.",
+    description: "<em> tag. Italic.",
     props: ["className"],
   },
   Underline: {
     from: "@/components/typography",
-    description:
-      "Visual underline for emphasis or decoration. Not a link — use Link for navigation. Use for stylistic emphasis or to draw attention to a word.",
+    description: "<span> with underline. Not for navigation — use Link.",
     props: ["className"],
   },
   Strikethrough: {
     from: "@/components/typography",
-    description:
-      "Crossed-out text. Use for deprecated content, removed features, corrections, or 'before' prices. Conveys 'this is no longer valid.'",
+    description: "<s> tag. Line-through.",
     props: ["className"],
   },
   Highlight: {
     from: "@/components/typography",
     description:
-      "Background highlight for maximum attention. Use for key phrases, search matches, new/changed content, or anything the reader must notice. Override color via className.",
+      "<mark> tag. bg-primary/20 background. Override color via className.",
     props: ["className"],
   },
   InlineCode: {
     from: "@/components/typography",
-    description:
-      "Code within prose. Use for variable names, function names, CLI commands, file paths, config values — anything the reader would type or see in a terminal/editor.",
+    description: "<code> tag",
     props: ["className", "style"],
   },
   Small: {
     from: "@/components/typography",
-    description:
-      "De-emphasized text. Use for fine print, disclaimers, timestamps, captions, metadata, footnotes — content that supports but isn't the main point.",
+    description: "<small> tag",
     props: ["className", "style"],
   },
 
-  // ─── Typography: Block-Level ──────────────────────────────────────
+  //Typography: Block-Level
   Paragraph: {
     from: "@/components/typography",
-    description:
-      "A block of body text. The default container for prose. One thought per paragraph. Use for any running text that isn't a heading, list, or quote.",
+    description: "<p> tag.",
     props: ["className", "style"],
   },
   Text: {
     from: "@/components/typography",
-    description:
-      "Generic inline text. Use when you need a styling handle on a piece of text inside a flex container, a label next to a value, or any inline fragment that isn't a full paragraph.",
+    description: "<span> with no default styles. For inline fragments.",
     props: ["className", "style"],
   },
   Blockquote: {
     from: "@/components/typography",
-    description:
-      "A quotation or pulled-out statement. Use for direct quotes, testimonials, important callouts that deserve visual separation from surrounding prose.",
+    description: "<blockquote> tag.",
     props: ["className", "style"],
   },
   List: {
     from: "@/components/typography",
-    description:
-      "Ordered or unordered list. Use when content is a set of related items, steps, or options. Pass `ordered` prop for numbered steps where sequence matters.",
+    description: "<ul> or <ol>. Pass ordered prop for numbered list.",
     props: ["ordered", "className"],
   },
   ListItem: {
     from: "@/components/typography",
-    description:
-      "A single item within a List. Can contain any inline content — text, Bold, InlineCode, Links, etc.",
+    description: "<li> tag. Use inside List.",
     props: ["className"],
   },
   Link: {
     from: "@/components/typography",
-    description:
-      "Navigation link. Use for all clickable text that takes the user somewhere — internal pages or external URLs. Wraps Next.js Link so it handles client-side routing automatically. Add target='_blank' explicitly for new-tab behavior.",
+    description: 'Next.js Link wrapper. Use target="_blank" for new tab.',
     props: ["href", "target", "className"],
   },
 
@@ -554,20 +536,116 @@ export const REGISTRY = {
     description:
       "Hover tooltip. TooltipProvider must wrap app (already in layout.tsx).",
   },
+  ButtonGroup: {
+    from: "@/components/ui/button-group",
+    exports: [
+      "ButtonGroup",
+      "ButtonGroupText",
+      "ButtonGroupSeparator",
+      "buttonGroupVariants",
+    ],
+    description:
+      "Joins buttons/inputs into a connected control. Orientations: horizontal, vertical.",
+  },
+  Combobox: {
+    from: "@/components/ui/combobox",
+    exports: [
+      "Combobox",
+      "ComboboxInput",
+      "ComboboxContent",
+      "ComboboxList",
+      "ComboboxItem",
+      "ComboboxGroup",
+      "ComboboxLabel",
+      "ComboboxCollection",
+      "ComboboxEmpty",
+      "ComboboxSeparator",
+      "ComboboxChips",
+      "ComboboxChip",
+      "ComboboxChipsInput",
+      "ComboboxTrigger",
+      "ComboboxValue",
+      "useComboboxAnchor",
+    ],
+    description:
+      "Searchable select built on Base UI. Supports single and multi-select (chip mode).",
+  },
+  Empty: {
+    from: "@/components/ui/empty",
+    exports: [
+      "Empty",
+      "EmptyHeader",
+      "EmptyTitle",
+      "EmptyDescription",
+      "EmptyContent",
+      "EmptyMedia",
+    ],
+    description:
+      "Empty state layout. Compose with EmptyHeader, EmptyMedia, EmptyTitle, EmptyDescription, EmptyContent.",
+  },
+  Field: {
+    from: "@/components/ui/field",
+    exports: [
+      "Field",
+      "FieldLabel",
+      "FieldDescription",
+      "FieldError",
+      "FieldGroup",
+      "FieldLegend",
+      "FieldSeparator",
+      "FieldSet",
+      "FieldContent",
+      "FieldTitle",
+    ],
+    description:
+      "Form field layout. Wraps label, input, description, error. Orientations: vertical, horizontal, responsive.",
+  },
+  InputGroup: {
+    from: "@/components/ui/input-group",
+    exports: [
+      "InputGroup",
+      "InputGroupAddon",
+      "InputGroupButton",
+      "InputGroupText",
+      "InputGroupInput",
+      "InputGroupTextarea",
+    ],
+    description:
+      "Input with addons. InputGroupAddon align: inline-start, inline-end, block-start, block-end.",
+  },
+  Item: {
+    from: "@/components/ui/item",
+    exports: [
+      "Item",
+      "ItemMedia",
+      "ItemContent",
+      "ItemActions",
+      "ItemGroup",
+      "ItemSeparator",
+      "ItemTitle",
+      "ItemDescription",
+      "ItemHeader",
+      "ItemFooter",
+    ],
+    description:
+      "List row layout. Compose with ItemMedia, ItemContent, ItemTitle, ItemDescription, ItemActions. Wrap in ItemGroup.",
+  },
+  NativeSelect: {
+    from: "@/components/ui/native-select",
+    exports: ["NativeSelect", "NativeSelectOption", "NativeSelectOptGroup"],
+    description:
+      "Native <select> with styling. Sizes: default, sm. Simpler alternative to Select.",
+  },
 
   // ─── Utilities ────────────────────────────────────────────────────
   cn: {
     from: "@/lib/utils",
     description:
-      "Class merging utility. Combines clsx + tailwind-merge. Use for conditional/override classes.",
+      "clsx + tailwind-merge. Use for all conditional/dynamic classes.",
   },
   ModeToggle: {
     from: "@/components/mode-toggle",
     description: "Light/Dark/System theme switcher dropdown button.",
-  },
-  ThemeProvider: {
-    from: "@/components/theme-provider",
-    description: "next-themes provider. Already wraps app in layout.tsx.",
   },
 } as const;
 
