@@ -18,7 +18,6 @@ import {
   ListItem,
   Link,
 } from "@/components/typography";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -81,7 +80,6 @@ export default function SkillTestPage() {
         >
           ← Home
         </Link>
-        <ModeToggle />
       </div>
 
       {/* ── Page Header ────────────────────────────────────────── */}

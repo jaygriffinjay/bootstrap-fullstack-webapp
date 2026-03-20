@@ -14,7 +14,6 @@ import {
   ListItem,
   Blockquote,
 } from "@/components/typography";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import {
   Card,
@@ -72,7 +71,6 @@ export default function DesignPage() {
         >
           ← Home
         </Link>
-        <ModeToggle />
       </div>
 
       {/* ── Page header ── */}

@@ -22,7 +22,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 
 const COLLECTIONS = [
@@ -267,7 +266,6 @@ export default function Gallery2Page() {
               {activeCollection.label}
             </Bold>
           </Small>
-          <ModeToggle />
         </div>
       </header>
 

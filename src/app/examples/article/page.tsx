@@ -35,7 +35,6 @@ import {
 } from "@/components/ui/accordion";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 
 function PicsumImage({
@@ -232,7 +231,6 @@ export default function ArticlePage() {
             <Badge variant="outline" className="text-xs">
               Essay
             </Badge>
-            <ModeToggle />
           </div>
         </div>
       </header>

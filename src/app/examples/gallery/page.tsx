@@ -14,8 +14,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { ModeToggle } from "@/components/mode-toggle";
-
 const CATEGORIES = [
   { label: "All", value: "all" },
   { label: "Nature", value: "nature" },
@@ -178,7 +176,6 @@ export default function GalleryPage() {
             <Badge variant="secondary" className="text-xs">
               {filtered.length} photos
             </Badge>
-            <ModeToggle />
           </div>
         </div>
       </header>

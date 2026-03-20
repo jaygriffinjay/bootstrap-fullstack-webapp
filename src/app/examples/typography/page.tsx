@@ -19,7 +19,6 @@ import {
   ListItem,
   Link,
 } from "@/components/typography";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
@@ -54,7 +53,6 @@ export default function TypographyPage() {
         >
           ← Home
         </Link>
-        <ModeToggle />
       </div>
 
       <H1 className="mb-8">Typography Test</H1>

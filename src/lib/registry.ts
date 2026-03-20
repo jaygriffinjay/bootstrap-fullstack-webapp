@@ -637,6 +637,14 @@ export const REGISTRY = {
       "Native <select> with styling. Sizes: default, sm. Simpler alternative to Select.",
   },
 
+  // ─── Layout ───────────────────────────────────────────────────────
+  Container: {
+    from: "@/components/layout/Container",
+    description:
+      "Centered max-width content container. Defaults to max-w-xl (576px) with standard page margins (mt-16, mb-80). Override width or margins via className.",
+    props: ["className"],
+  },
+
   // ─── Utilities ────────────────────────────────────────────────────
   cn: {
     from: "@/lib/utils",

@@ -1,5 +1,4 @@
 import { H1, H2, Paragraph, Small, Link } from "@/components/typography";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import {
   Card,
@@ -7,6 +6,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Container } from "@/components/layout/Container";
 
 const EXAMPLES = [
   {
@@ -64,21 +64,7 @@ const EXAMPLES = [
 export default function ExamplesPage() {
   return (
     <div className="bg-background min-h-screen">
-      <H2 className="sr-only">the vibes are immaculate</H2>
-
-      <header className="border-border/30 flex items-center justify-between border-b px-6 py-4">
-        <div className="flex items-center gap-3">
-          <Link
-            href="/"
-            className="text-muted-foreground hover:text-foreground text-sm no-underline transition-colors"
-          >
-            ← Home
-          </Link>
-        </div>
-        <ModeToggle />
-      </header>
-
-      <main className="mx-auto max-w-4xl px-6 py-16">
+      <Container>
         <div className="mb-10">
           <H1
             className="text-4xl font-bold tracking-tight"
@@ -121,7 +107,7 @@ export default function ExamplesPage() {
             — delete or keep as reference.
           </Small>
         </div>
-      </main>
+      </Container>
     </div>
   );
 }

@@ -12,7 +12,6 @@ import {
   Text,
   Link,
 } from "@/components/typography";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -107,7 +106,6 @@ export default function ShadcnPage() {
         >
           ← Home
         </Link>
-        <ModeToggle />
       </div>
 
       <H1 className="mb-2">shadcn/ui Component Test</H1>

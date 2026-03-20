@@ -1,14 +1,10 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { H1, Paragraph, Link } from "@/components/typography";
+import { H1, Paragraph } from "@/components/typography";
+import { siteConfig } from "@/site";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6">
-      <H1 className="text-5xl font-bold tracking-tight">Hello World</H1>
-      <div className="flex items-center gap-4">
-        <ModeToggle />
-        <Link href="/examples">Examples →</Link>
-      </div>
+    <div className="flex min-h-[calc(100vh-3.5rem)] flex-col items-center justify-center gap-4">
+      <H1 className="text-5xl font-bold tracking-tight"> Hello World</H1>
     </div>
   );
 }

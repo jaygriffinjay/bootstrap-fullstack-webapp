@@ -19,8 +19,6 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import { ModeToggle } from "@/components/mode-toggle";
-
 export default function LandingPage() {
   return (
     <div className="bg-background relative min-h-screen overflow-hidden">
@@ -71,7 +69,6 @@ export default function LandingPage() {
           </Link>
         </nav>
         <div className="flex items-center gap-3">
-          <ModeToggle />
           <Button variant="outline" size="sm">
             Sign in
           </Button>
