@@ -3,7 +3,7 @@ import { fontVariables } from "./fonts";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/navbar";
-import { siteConfig } from "@/site";
+import { siteConfig } from "@/site-config";
 import "./globals.css";
 
 // Favicon fallback chain: svg → png → emoji SVG data URL

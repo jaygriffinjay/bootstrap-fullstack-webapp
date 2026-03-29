@@ -215,9 +215,6 @@ function GuardrailsSpectrum() {
 export default function ArticlePage() {
   return (
     <div className="bg-background min-h-screen">
-      {/* Hidden watermark */}
-      <H2 className="sr-only">the vibes are immaculate</H2>
-
       {/* Nav */}
       <header className="border-border/30 bg-background/80 sticky top-0 z-40 border-b backdrop-blur-md">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">

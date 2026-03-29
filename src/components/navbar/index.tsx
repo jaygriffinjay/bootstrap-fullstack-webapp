@@ -1,46 +1,38 @@
-import { siteConfig } from "@/site";
+import Image from "next/image";
+import { siteConfig } from "@/site-config";
 import { NavMenu } from "./nav-menu";
 import { cn } from "@/lib/utils";
+import styles from "./navbar.module.css";
 
 interface NavbarProps {
   className?: string;
 }
 
-export function Navbar({ className }: NavbarProps) {
-  // Logo: image if available, emoji as fallback
+// Logo config lives in src/site-config.ts — set logo.png, logo.svg, or logo.emoji there
+function NavbarLogo() {
   const logoSrc = siteConfig.logo.png ?? siteConfig.logo.svg;
 
   return (
-    <header
-      className={cn(
-        "border-border/40 bg-background/80 sticky top-0 z-40 border-b backdrop-blur-md",
-        className,
+    <div className={styles.logoWrapper}>
+      {logoSrc ? (
+        <Image src={logoSrc} alt={siteConfig.name} width={28} height={28} className={styles.logoImg} />
+      ) : (
+        <span className={styles.logoEmoji} aria-hidden>
+          {siteConfig.logo.emoji}
+        </span>
       )}
-    >
-      <div className="mx-auto flex h-14 max-w-xl items-center justify-between px-4">
-        {/* Left: logo + title */}
-        <div className="flex items-center gap-2.5">
-          {logoSrc ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={logoSrc}
-              alt={siteConfig.name}
-              className="size-7 rounded-md object-contain"
-            />
-          ) : (
-            <span className="text-xl leading-none" aria-hidden>
-              {siteConfig.logo.emoji}
-            </span>
-          )}
-          <span
-            className="text-foreground text-sm font-semibold tracking-tight"
-            style={{ fontFamily: "var(--font-geist-sans)" }}
-          >
-            {siteConfig.name}
-          </span>
-        </div>
+      <span className={styles.siteTitle}>
+        {siteConfig.name}
+      </span>
+    </div>
+  );
+}
 
-        {/* Right: hamburger menu (links come from routes.ts) */}
+export function Navbar({ className }: NavbarProps) {
+  return (
+    <header className={cn(styles.header, className)}>
+      <div className={styles.inner}>
+        <NavbarLogo />
         <NavMenu />
       </div>
     </header>

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import { navRoutes } from "./routes";
+import styles from "./navbar.module.css";
 import NextLink from "next/link";
 
 interface NavMenuProps {
@@ -28,17 +29,14 @@ export function NavMenu({ className }: NavMenuProps) {
         <Button
           variant="ghost"
           size="icon"
-          className={cn(
-            "size-9 text-muted-foreground hover:text-foreground hover:!bg-transparent focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
-            className,
-          )}
+          className={cn(styles.menuTrigger, className)}
           aria-label="Open menu"
         >
-          <MenuIcon className="size-5" />
+          <MenuIcon className={styles.menuIcon} />
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className={styles.dropdownContent}>
         {navRoutes.map((link) => (
           <DropdownMenuItem key={link.href} asChild>
             <NextLink href={link.href}>{link.label}</NextLink>
@@ -47,14 +45,14 @@ export function NavMenu({ className }: NavMenuProps) {
 
         <DropdownMenuSeparator />
 
-        {/* Theme toggle — icon shows what you'd switch TO */}
+        {/* theme toggle: icon shows what you'd switch TO */}
         <DropdownMenuItem
           onSelect={(e) => e.preventDefault()}
           onClick={() => setTheme(isDark ? "light" : "dark")}
-          className="flex items-center justify-between"
+          className={styles.themeToggleItem}
         >
           <span>Theme</span>
-          {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+          {isDark ? <Sun className={styles.themeIcon} /> : <Moon className={styles.themeIcon} />}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
