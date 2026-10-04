@@ -1,0 +1,14 @@
+@reference "../../app/globals.css";
+
+/* ─── AppSidebar (index.tsx) ─────────────────────────────────── */
+
+/* pins the sidebar to exact viewport height and scrolls its own content
+   independently, so it never grows/shrinks with the page beside it */
+.sidebar {
+  @apply h-svh overflow-y-auto;
+}
+
+/* name displayed at the top of the sidebar, in the display font */
+.name {
+  @apply px-2 pt-2 text-lg;
+}

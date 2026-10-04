@@ -1,0 +1,14 @@
+@reference "./globals.css";
+
+/* ─── RootLayout (layout.tsx) ────────────────────────────────── */
+
+/* pins the sidebar+content row to exact viewport height so the sidebar never
+   grows with page content; body itself never scrolls */
+.provider {
+  @apply h-svh overflow-hidden;
+}
+
+/* main content area scrolls independently of the sidebar */
+.inset {
+  @apply overflow-y-auto;
+}

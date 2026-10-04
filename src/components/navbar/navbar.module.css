@@ -12,27 +12,6 @@
   @apply mx-auto flex h-14 max-w-[640px] items-center justify-between px-4;
 }
 
-/* logo image + site name, side by side */
-.logoWrapper {
-  @apply flex items-center gap-2.5;
-}
-
-/* logo image */
-.logoImg {
-  @apply size-7 rounded-md object-contain;
-}
-
-/* emoji fallback when no logo image is set */
-.logoEmoji {
-  @apply text-xl leading-none;
-}
-
-/* site name text next to the logo */
-.siteTitle {
-  @apply text-foreground text-sm font-semibold tracking-tight;
-  font-family: var(--font-geist-sans);
-}
-
 /* ─── NavMenu (nav-menu.tsx) ─────────────────────────────────── */
 
 /* ghost icon button that opens the dropdown */

@@ -40,7 +40,6 @@ Four fonts loaded via `next/font/google`, exposed as CSS variables on `<body>`. 
 - `--font-geist-sans` — default body font
 - `--font-geist-mono` — monospace alternative
 - `--font-jetbrains-mono` — code and technical text, has italic variant
-- `--font-sekuya` — display / hero headings
 
 ## Getting Started
 
@@ -58,8 +57,10 @@ src/
   app/
     fonts.ts            # Font definitions
     globals.css         # Tailwind config, theme tokens, base styles
-    layout.tsx          # Root layout — ThemeProvider, TooltipProvider, fonts
+    layout.tsx          # Root layout — ThemeProvider, sidebar shell, fonts
   components/
+    sidebar/            # App sidebar (edit routes.ts to change nav links)
+    navbar/             # Optional top navbar with dropdown menu
     typography/         # H1–H6, Paragraph, Bold, Italic, Link, InlineCode, etc.
     ui/                 # shadcn components
     mode-toggle.tsx     # Light / dark / system switcher
@@ -82,14 +83,6 @@ src/
 **Semantic color tokens everywhere.** `text-foreground`, `bg-primary`, `text-muted-foreground` — not `text-gray-900` or `text-blue-500`. Dark mode flips automatically, no per-component `dark:` prefixes needed.
 
 **`registry.ts` as source of truth.** Documents every component in the project so Copilot (and you) always know what's available, where it lives, and when to use it.
-
-## Reference Pages
-
-Included as living documentation — delete or keep as needed.
-
-- `/typography` — every typography component, edge cases, composition examples
-- `/shadcn` — every major shadcn component with basic examples
-- `/design` — how `globals.css`, the theme system, and font system work
 
 ## Scripts
 

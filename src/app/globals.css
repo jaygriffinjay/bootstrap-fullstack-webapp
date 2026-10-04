@@ -2,14 +2,6 @@
 @import "../../node_modules/tw-animate-css/dist/tw-animate.css";
 @import "shadcn/tailwind.css";
 
-@font-face {
-  font-family: "Sekuya";
-  src: url("/Sekuya-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -53,12 +45,19 @@
   --radius-4xl: calc(var(--radius) + 16px);
 }
 
+/* below, matches SIDEBAR_WIDTH in ui/sidebar.tsx: sidebar-colored strip only behind the
+   sidebar's own column, background color everywhere else, so overscroll reveals the right
+   color per column instead of one flat color across the whole width */
+html {
+  background: linear-gradient(to right, var(--sidebar) 16rem, var(--background) 16rem);
+}
+
 body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
+  background: linear-gradient(to right, var(--sidebar) 16rem, var(--background) 16rem);
 }
 
 :root {
-  --font-sekuya: "Sekuya", sans-serif;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.13 0.028 261.692);

@@ -1,5 +1,4 @@
-import { H1, Paragraph } from "@/components/typography";
-import { siteConfig } from "@/site-config";
+import { H1 } from "@/components/typography";
 
 export default function Home() {
   return (

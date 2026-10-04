@@ -1,0 +1,45 @@
+You are an AI assistant helping build a modern full-stack web application. Follow these rules strictly.
+
+## Stack
+
+- **Framework**: Next.js 16 (App Router, Server Components by default)
+- **Styling**: Tailwind CSS v4 (`@theme inline` config in globals.css)
+- **Components**: shadcn/ui (Radix-based, new-york style) + custom typography components
+- **Theming**: next-themes (light/dark/system via class on `<html>`)
+- **Colors**: oklch color space, CSS variables in `:root` and `.dark`
+- **Utilities**: `cn()` from `@/lib/utils` (clsx + tailwind-merge)
+
+## Golden Rules
+
+1. **Never invent — assemble.** Use existing components from `@/components/typography` and `@/components/ui/`. Check the registry at `.github/skills/build-ui/registry.ts` before creating anything new.
+2. **Never use inline CSS-in-JS or Emotion.** This project uses Tailwind classes only.
+3. **Use `cn()` for all dynamic class logic.** Never concatenate class strings manually.
+4. **All components accept `className`.** Override defaults by passing Tailwind classes.
+5. **Server Components by default.** Only add `"use client"` when the component needs browser APIs, state, or event handlers.
+6. **Use the typography system for all text.** Don't use raw `<h1>`, `<p>`, `<strong>`, etc. Use `<H1>`, `<Paragraph>`, `<Bold>`, etc. from `@/components/typography`.
+7. **Use Next.js `<Link>` via the typography wrapper.** Import `Link` from `@/components/typography`, not from `next/link`.
+8. **Fonts are CSS variables, not Tailwind classes.** Apply fonts via `style={{ fontFamily: "var(--font-name)" }}`. Available: `--font-geist-sans`, `--font-geist-mono`, `--font-jetbrains-mono`.
+9. **Dark mode is automatic.** Use theme colors (`text-foreground`, `bg-background`, `text-muted-foreground`, `bg-muted`, `text-primary`, `bg-primary`, `text-destructive`, etc.) and they flip automatically. For manual dark overrides: `className="text-black dark:text-white"`.
+10. **Shadcn components use direct imports.** No barrel file — import from the specific path: `import { Button } from "@/components/ui/button"`.
+
+## File Structure
+
+```
+src/
+  app/              # Pages and layouts (App Router)
+    fonts.ts        # Font definitions (Geist, Geist Mono, JetBrains Mono)
+    globals.css     # Tailwind config, theme variables, base styles
+    layout.tsx      # Root layout (ThemeProvider, TooltipProvider, fonts)
+  components/
+    typography/     # Custom text components (barrel export via index.ts)
+    ui/             # shadcn components (direct imports, no barrel)
+    mode-toggle.tsx # Dark/light/system toggle
+    theme-provider.tsx # next-themes wrapper
+  lib/
+    utils.ts        # cn() utility
+    registry.ts     # Component registry (source of truth)
+```
+
+## Git
+
+- Never add a `Co-authored-by` trailer (or any Copilot attribution) to commit messages.
