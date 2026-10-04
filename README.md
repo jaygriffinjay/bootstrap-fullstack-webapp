@@ -30,8 +30,6 @@ src/
     navbar/     # Optional top navbar
     typography/ # Text components
     ui/         # shadcn components
-  lib/
-    registry.ts # Every component: path, exports, usage
 .github/        # Copilot instructions and UI skill
 ```
 
@@ -40,7 +38,7 @@ src/
 - Use typography components, not raw HTML text tags.
 - Use semantic color tokens (`bg-primary`, `text-muted-foreground`), not fixed colors.
 - Apply fonts via CSS variables (`var(--font-geist-sans)`, `--font-geist-mono`, `--font-jetbrains-mono`), not Tailwind classes.
-- Check `registry.ts` before building a new component.
+- Inspect existing component exports and source files before building a new component.
 
 ## Scripts
 

@@ -11,16 +11,15 @@ You are an AI assistant helping build a modern full-stack web application. Follo
 
 ## Golden Rules
 
-1. **Never invent — assemble.** Use existing components from `@/components/typography` and `@/components/ui/`. Check the registry at `.github/skills/build-ui/registry.ts` before creating anything new.
-2. **Never use inline CSS-in-JS or Emotion.** This project uses Tailwind classes only.
+1. **Never invent — assemble.** Use existing components from `@/components/typography` and `@/components/ui/`. Inspect their exports and source files before creating anything new.
+2. **Never use inline CSS-in-JS**
 3. **Use `cn()` for all dynamic class logic.** Never concatenate class strings manually.
 4. **All components accept `className`.** Override defaults by passing Tailwind classes.
 5. **Server Components by default.** Only add `"use client"` when the component needs browser APIs, state, or event handlers.
-6. **Use the typography system for all text.** Don't use raw `<h1>`, `<p>`, `<strong>`, etc. Use `<H1>`, `<Paragraph>`, `<Bold>`, etc. from `@/components/typography`.
-7. **Use Next.js `<Link>` via the typography wrapper.** Import `Link` from `@/components/typography`, not from `next/link`.
-8. **Fonts are CSS variables, not Tailwind classes.** Apply fonts via `style={{ fontFamily: "var(--font-name)" }}`. Available: `--font-geist-sans`, `--font-geist-mono`, `--font-jetbrains-mono`.
-9. **Dark mode is automatic.** Use theme colors (`text-foreground`, `bg-background`, `text-muted-foreground`, `bg-muted`, `text-primary`, `bg-primary`, `text-destructive`, etc.) and they flip automatically. For manual dark overrides: `className="text-black dark:text-white"`.
-10. **Shadcn components use direct imports.** No barrel file — import from the specific path: `import { Button } from "@/components/ui/button"`.
+6. **Use the typography system for text and links.** Use `<H1>`, `<Paragraph>`, `<Bold>`, etc. from `@/components/typography` instead of raw text tags, and import its `Link` wrapper instead of `next/link`.
+7. **Fonts are CSS variables, not Tailwind classes.** Apply fonts via `style={{ fontFamily: "var(--font-name)" }}`. Available: `--font-geist-sans`, `--font-geist-mono`, `--font-jetbrains-mono`.
+8. **Dark mode is automatic.** Use theme colors (`text-foreground`, `bg-background`, `text-muted-foreground`, `bg-muted`, `text-primary`, `bg-primary`, `text-destructive`, etc.) and they flip automatically. For manual overrides: `className="text-black dark:text-white"`.
+9. **Shadcn components use direct imports.** No barrel file — import from the specific path: `import { Button } from "@/components/ui/button"`.
 
 ## File Structure
 
@@ -37,7 +36,6 @@ src/
     theme-provider.tsx # next-themes wrapper
   lib/
     utils.ts        # cn() utility
-    registry.ts     # Component registry (source of truth)
 ```
 
 ## Git
