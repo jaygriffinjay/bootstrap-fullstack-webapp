@@ -4,7 +4,7 @@ You are an AI assistant helping build a modern full-stack web application. Follo
 
 - **Framework**: Next.js 16 (App Router, Server Components by default)
 - **Styling**: Tailwind CSS v4 (`@theme inline` config in globals.css)
-- **Components**: shadcn/ui (Radix-based, new-york style) + custom typography components
+- **Components**: shadcn/ui (Base UI, Rhea style) + custom typography components
 - **Theming**: next-themes (light/dark/system via class on `<html>`)
 - **Colors**: oklch color space, CSS variables in `:root` and `.dark`
 - **Utilities**: `cn()` from `@/lib/utils` (clsx + tailwind-merge)

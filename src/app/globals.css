@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "../../node_modules/tw-animate-css/dist/tw-animate.css";
 @import "shadcn/tailwind.css";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -43,6 +43,8 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+  --font-heading: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans);
 }
 
 /* below, matches SIDEBAR_WIDTH in ui/sidebar.tsx: sidebar-colored strip only behind the

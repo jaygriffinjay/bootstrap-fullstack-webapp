@@ -25,21 +25,26 @@ export function NavMenu({ className }: NavMenuProps) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="ghost"
-          size="icon"
-          className={cn(styles.menuTrigger, className)}
-          aria-label="Open menu"
-        >
-          <MenuIcon className={styles.menuIcon} />
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger
+        render={
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn(styles.menuTrigger, className)}
+            aria-label="Open menu"
+          >
+            <MenuIcon className={styles.menuIcon} />
+          </Button>
+        }
+      />
 
       <DropdownMenuContent align="end" className={styles.dropdownContent}>
         {navRoutes.map((link) => (
-          <DropdownMenuItem key={link.href} asChild>
-            <NextLink href={link.href}>{link.label}</NextLink>
+          <DropdownMenuItem
+            key={link.href}
+            render={<NextLink href={link.href} />}
+          >
+            {link.label}
           </DropdownMenuItem>
         ))}
 

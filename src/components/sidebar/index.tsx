@@ -49,15 +49,13 @@ export function AppSidebar({
                 {group.items.map((item) => (
                   <SidebarMenuItem key={item.url}>
                     <SidebarMenuButton
-                      asChild
+                      render={<NextLink href={item.url}>{item.title}</NextLink>}
                       isActive={
                         item.url === "/"
                           ? pathname === "/"
                           : pathname.startsWith(item.url)
                       }
-                    >
-                      <NextLink href={item.url}>{item.title}</NextLink>
-                    </SidebarMenuButton>
+                    />
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
